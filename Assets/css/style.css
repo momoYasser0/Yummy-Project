@@ -1,0 +1,178 @@
+/*!=============> Start Global Styles<============== */
+:root {
+    --main-color: #021851;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+body {
+    background-color: var(--main-color);
+    overflow: hidden;
+}
+
+.loading,
+.inner-loading {
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loader {
+    width: 50px;
+    --b: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px;
+    background: conic-gradient(#0000 10%, #fff) content-box;
+    -webkit-mask:
+        repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation: l4 1s infinite steps(10);
+}
+
+@keyframes l4 {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+
+/* =============>Start Side-Nav<============== */
+.side-nav {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    background-color: #fff;
+    transition: 0.5s;
+    z-index: 99999;
+
+}
+
+.side-nav .nav-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.side-nav .nav-img img {
+    width: 50px;
+}
+
+
+
+.side-nav .toggle-icon {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.side-nav .icons i {
+    cursor: pointer;
+}
+
+.side-nav .nav-body {
+    background-color: var(--main-color);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.side-nav .nav-body .links {
+    overflow: hidden;
+}
+
+.side-nav .nav-body .links li {
+    position: relative;
+    cursor: pointer;
+}
+
+.side-nav .nav-body .links li::after {
+    position: absolute;
+    content: "";
+    background-color: #fff;
+    width: 0;
+    height: 1px;
+    bottom: -6px;
+    left: 0;
+    transition: all 0.5s;
+}
+
+.side-nav .nav-body .links li:hover::after {
+    width: 50%;
+}
+
+/* =============>Start Container<============== */
+
+/*& ===>Start Default & Category<==== */
+#container .image {
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#container .image .inner {
+    background-color: #ffffff96;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transition: 0.5s;
+    text-align: center;
+
+}
+
+#container .image:hover .inner {
+    top: 0;
+}
+
+/*& ===>End Default & Category<==== */
+/*^ ===>Start Area & Ingredients<==== */
+
+#container .inner {
+    padding: 15px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/*^ ===>End Area & Ingredients<==== */
+
+.invalid {
+    background-color: #F8D7DA;
+    color: #000;
+    font-size: 14px;
+    padding: 10px;
+    position: relative;
+    margin-top: 10px;
+    display: none;
+}
+
+.invalid::before {
+    content: "";
+    position: absolute;
+    border: 8px solid;
+    border-color: transparent transparent #F8D7DA transparent;
+    top: -14px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+}
+
+#CloseBtn {
+    cursor: pointer;
+}
